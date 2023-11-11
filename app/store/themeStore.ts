@@ -3,18 +3,17 @@ import { persist } from "zustand/middleware";
 
 interface ThemeStore {
   isDark: boolean;
-  setIsDark: (isDark: boolean) => void;
+  setIsDark: () => void;
 }
 
 const useThemeStore = create<ThemeStore, [["zustand/persist", ThemeStore]]>(
   persist(
     (set) => ({
       isDark: true,
-      setIsDark: (isDark: boolean) => set({ isDark }),
+      setIsDark: () => set((state) => ({ isDark: !state.isDark })),
     }),
     {
       name: "theme-storage",
-      skipHydration: true,
     }
   )
 );

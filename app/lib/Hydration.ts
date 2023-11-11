@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect } from "react";
-import useThemeStore from "../store/themeStore";
+import { useState, useEffect } from "react";
 
-export default function Hydration () {
+function Hydration({ children }: { children: React.ReactNode | any }) {
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  // Wait till Next.js rehydration completes
   useEffect(() => {
-    useThemeStore.persist.rehydrate();
+    setIsHydrated(true);
   }, []);
 
-  return null;
+  return isHydrated ? children : null;
 }
+
+export default Hydration;
