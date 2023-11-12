@@ -62,3 +62,11 @@ These instructions will help you set up a local development instance of the appl
 - View the created comic in a comic strip format
 - Add speech bubbles to the panels in the strip format
 - Add text to the speech bubbles
+
+## Improvements Can Be Done
+
+- Add a bucket storage like firebase/S3 to store the comics and speech bubbles, so that the user can view them later, Now the comics are stored in the local storage of the browser and will be lost when the browser is closed and sometimes images may not be loaded from the local storage
+- Add a login system
+- Add a share feature to share the comics
+- Add a download feature to download the comics
+- Design can be improved with more features
