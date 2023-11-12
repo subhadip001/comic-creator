@@ -23,10 +23,27 @@ const ComicStrip: React.FC<ComicStripProps> = ({
   );
   return (
     <div>
-      <div className="flex flex-col items-center mb-3 md:mb-5">
+      <div className="flex flex-col gap-2 items-center mb-3 md:mb-5">
         <span className="text-3xl md:text-5xl text-gray-400 font-bold">
           Your Created Comic is Here
         </span>
+        <div
+          className={`py-5 flex items-center justify-end ${
+            isDark ? "bg-bg_for_dark" : "bg-bg_for_light"
+          }`}
+        >
+          <Button
+            title={
+              <div className="flex items-center gap-2 text-white">
+                <IoMdAdd />
+                <span>Create A New Comic</span>
+              </div>
+            }
+            onClickHandler={handleCreateNew}
+            btnType="button"
+            customClass="bg-brand_green text-white py-1 px-2 rounded-md"
+          />
+        </div>
         <span>
           Tip - Right click or Press and Hold on an image to add speech
           bubble/annotation to it at that position
@@ -43,23 +60,6 @@ const ComicStrip: React.FC<ComicStripProps> = ({
               );
             })}
         </div>
-      </div>
-      <div
-        className={`py-5 flex items-center justify-end ${
-          isDark ? "bg-bg_for_dark" : "bg-bg_for_light"
-        }`}
-      >
-        <Button
-          title={
-            <div className="flex items-center gap-2 text-white">
-              <IoMdAdd />
-              <span>Create New Comic</span>
-            </div>
-          }
-          onClickHandler={handleCreateNew}
-          btnType="button"
-          customClass="bg-brand_green text-white py-1 px-2 rounded-md"
-        />
       </div>
     </div>
   );
