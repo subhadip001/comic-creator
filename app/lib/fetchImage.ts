@@ -45,7 +45,7 @@ const useGenerateComicImage = (text: string) => {
         setLoading(false);
         setTimeout(() => {
           setError(null);
-        }, 2000);
+        }, 3000);
       }
     };
 
