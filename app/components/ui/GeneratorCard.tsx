@@ -103,7 +103,7 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
             title={
               cardCount === 10 ? (
                 <div className="flex items-center gap-2">
-                  <span>Let's Check What U Built</span>
+                  <span>Lets Check What U Built</span>
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
