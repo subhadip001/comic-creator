@@ -32,6 +32,8 @@ const MainCompoment: React.FC = (): JSX.Element => {
   );
   const [cardCount, setCardCount] = useState<number>(1);
 
+  // fetching image url from api
+
   const { url, loading, error } = useGenerateComicImage(query);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
