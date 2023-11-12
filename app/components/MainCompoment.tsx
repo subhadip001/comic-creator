@@ -9,10 +9,8 @@ import useImageStore from "../store/imageStore";
 import ComicStrip from "./ui/ComicStrip";
 
 /**
- * @packageDocumentation
  * @module MainCompoment
- * @description This is the main component of the app
- * @component
+ * @description This is the main component of the app with conditional rendering of GeneratorCard and ComicStrip
  * @returns {JSX.Element} JSX.Element
  */
 
