@@ -27,8 +27,8 @@ const MainCompoment: React.FC = (): JSX.Element => {
   );
   const [query, setQuery] = useState<string>("");
   const [currImage, setCurrImage] = useState<string>("");
-  const pageRef = useRef<number>(1);
-  const cardCountRef = useRef<number>(1);
+  const [page, setPage] = useState<number>(1);
+  const [cardCount, setCardCount] = useState<number>(1);
 
   const { url, loading, error } = useGenerateComicImage(query);
 
@@ -44,14 +44,20 @@ const MainCompoment: React.FC = (): JSX.Element => {
   }, [url]);
 
   const handleNext = () => {
-    if (cardCountRef.current <= 10) {
-      cardCountRef.current += 1;
+    if (cardCount < 2) {
+      setCardCount((prev) => prev + 1);
       setNewImageUrl(currImage);
       setCurrImage("");
       setQuery("");
-    } else if (cardCountRef.current > 10) {
-      pageRef.current = 2;
+    } else if (cardCount >= 2) {
+      setPage(2);
     }
+  };
+
+  const handleCreateNew = () => {
+    setPage(1);
+    setCardCount(1);
+    clearImageUrls();
   };
 
   return (
@@ -63,10 +69,10 @@ const MainCompoment: React.FC = (): JSX.Element => {
       } }`}
     >
       <section className="h-[92vh] w-[95%] mx-auto">
-        {pageRef.current === 1 ? (
-          <div className="flex overflow-x-auto">
+        {page === 1 ? (
+          <div className="flex">
             <GeneratorCard
-              cardCountRef={cardCountRef}
+              cardCount={cardCount}
               currImage={currImage}
               query={query}
               handleSubmit={handleSubmit}
@@ -75,9 +81,9 @@ const MainCompoment: React.FC = (): JSX.Element => {
               error={error}
             />
           </div>
-        ) : pageRef.current === 2 ? (
+        ) : page === 2 ? (
           <div>
-            <ComicStrip />
+            <ComicStrip page={page} setPage={setPage} handleCreateNew={handleCreateNew} />
           </div>
         ) : null}
       </section>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 type GeneratorCardProps = {
-  cardCountRef: React.MutableRefObject<number>;
+  cardCount: number;
   currImage: string;
   query: string;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -12,7 +12,7 @@ type GeneratorCardProps = {
 };
 
 const GeneratorCard: React.FC<GeneratorCardProps> = ({
-  cardCountRef,
+  cardCount,
   currImage,
   query,
   handleSubmit,
@@ -33,7 +33,7 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
       ) : !currImage && error ? (
         <div>Error occured</div>
       ) : (
-        <div>Preview will be shown here {cardCountRef.current}</div>
+        <div>Preview will be shown here {cardCount}</div>
       )}
       <form onSubmit={handleSubmit}>
         <input

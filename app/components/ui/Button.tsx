@@ -1,11 +1,20 @@
 "use client";
 
-import React from 'react'
+import React from "react";
 
-const Button : React.FC = () => {
+type ButtonProps = {
+  title: string;
+  customClass?: string;
+  btnType: "button" | "submit" | "reset" | undefined;
+  onClickHandler: () => void;
+};
+
+const Button: React.FC<ButtonProps> = ({ title, customClass, btnType, onClickHandler }) => {
   return (
-    <div>Button</div>
-  )
-}
+    <button className={`${customClass} outline-none`} type={btnType} onClick={onClickHandler}>
+      {title}
+    </button>
+  );
+};
 
-export default Button
+export default Button;
