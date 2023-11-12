@@ -12,17 +12,34 @@ const Navbar: React.FC = () => {
   );
 
   return (
-    <section
-      className={`${isDark ? "bg-bg_for_dark text-text_for_dark" : "bg-bg_for_light text-text_for_light"} h-[8vh]`}
+    <header
+      className={`${
+        isDark
+          ? "bg-bg_for_dark_bar text-text_for_dark"
+          : "bg-bg_for_light_bar text-text_for_light"
+      } h-[8vh] flex items-center`}
     >
-      <button
-        onClick={() => {
-          setIsDark(!isDark);
-        }}
-      >
-        {isDark ? <MdLightMode /> : <MdDarkMode />}
-      </button>{" "}
-    </section>
+      <div className="flex justify-between items-center w-[95%] mx-auto">
+        <div className="text-xl md:text-2xl">Comic Creator</div>
+        <button
+          onClick={() => {
+            setIsDark(!isDark);
+          }}
+        >
+          {isDark ? (
+            <div>
+              {" "}
+              <MdLightMode />{" "}
+            </div>
+          ) : (
+            <div>
+              {" "}
+              <MdDarkMode />{" "}
+            </div>
+          )}
+        </button>
+      </div>
+    </header>
   );
 };
 

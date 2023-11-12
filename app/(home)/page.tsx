@@ -1,9 +1,10 @@
 import MainCompoment from "../components/MainCompoment";
 
-export default function Home() {
+
+export default async function Home() {
   return (
-    <>
+    <main>
       <MainCompoment />
-    </>
+    </main>
   );
 }
