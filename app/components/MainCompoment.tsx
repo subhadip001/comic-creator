@@ -74,7 +74,7 @@ const MainCompoment: React.FC = (): JSX.Element => {
       } }`}
     >
       <section className="h-[92vh] w-[95%] mx-auto py-5">
-        {page === 2 ? (
+        {page === 1 ? (
           <div className="flex">
             <GeneratorCard
               cardCount={cardCount}
@@ -86,7 +86,7 @@ const MainCompoment: React.FC = (): JSX.Element => {
               error={error}
             />
           </div>
-        ) : page === 1 ? (
+        ) : page === 2 ? (
           <div>
             <ComicStrip
               page={page}

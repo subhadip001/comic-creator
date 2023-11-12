@@ -26,10 +26,10 @@ const ComicStrip: React.FC<ComicStripProps> = ({
           Your Created Comic is Here
         </span>
       </div>
-      <div className="bg-gray-500 flex flex-col h-[65vh] w-full overflow-y-auto md:overflow-x-auto">
+      <div className="bg-gray-300 flex flex-col h-[65vh] w-full overflow-y-auto md:overflow-x-auto">
         <div className="flex flex-col gap-3 md:flex-row w-full">
-          {true &&
-            ["1", "3", "4", "5"].map((imageUrl, index) => {
+          {imageUrls.length > 0 &&
+            imageUrls.map((imageUrl, index) => {
               return (
                 <React.Fragment key={index}>
                   <ComicCard imageUrl={imageUrl} />
@@ -38,7 +38,7 @@ const ComicStrip: React.FC<ComicStripProps> = ({
             })}
         </div>
       </div>
-      <div className="mt-5">
+      <div className="mt-5 flex items-center justify-end">
         <Button
           title={
             <div className="flex items-center gap-2 text-white">

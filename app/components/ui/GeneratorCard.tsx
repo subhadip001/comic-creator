@@ -101,10 +101,16 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
             btnType="button"
             customClass="flex items-center justify-center w-full py-1 bg-brand_green text-white"
             title={
-              <div className="flex items-center gap-2">
-                <span>Generate Next</span>
-                <AiOutlineArrowRight />
-              </div>
+              cardCount === 2 ? (
+                <div className="flex items-center gap-2">
+                  <span>Let's Check What U Built</span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <span>Generate Next</span>
+                  <AiOutlineArrowRight />
+                </div>
+              )
             }
             onClickHandler={() => {
               setQueryText("");
