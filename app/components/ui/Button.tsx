@@ -6,7 +6,7 @@ type ButtonProps = {
   title: string;
   customClass?: string;
   btnType: "button" | "submit" | "reset" | undefined;
-  onClickHandler: () => void;
+  onClickHandler?: () => void;
 };
 
 const Button: React.FC<ButtonProps> = ({ title, customClass, btnType, onClickHandler }) => {

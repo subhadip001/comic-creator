@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
+import InputComponent from "./InputComponent";
+import Button from "./Button";
 
 type GeneratorCardProps = {
   cardCount: number;
@@ -14,7 +16,6 @@ type GeneratorCardProps = {
 const GeneratorCard: React.FC<GeneratorCardProps> = ({
   cardCount,
   currImage,
-  query,
   handleSubmit,
   handleNext,
   loading,
@@ -36,25 +37,24 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
         <div>Preview will be shown here {cardCount}</div>
       )}
       <form onSubmit={handleSubmit}>
-        <input
-          className="bg-transparent"
-          type="text"
+        <InputComponent
+          customClass="bg-transparent"
+          inputType="text"
+          placeholder="Enter query"
+          onChangeHandler={(e) => setQueryText(e.target.value)}
+          value={queryText}
           name="query"
           id="query"
-          placeholder="Enter query"
-          onChange={(e) => setQueryText(e.target.value)}
-          value={queryText}
-        />{" "}
-        <button type="submit">Generate</button>
-        <button
-          onClick={() => {
+        />
+        <Button btnType="submit" title="Generate" />
+        <Button
+          btnType="button"
+          title="Next"
+          onClickHandler={() => {
             setQueryText("");
             handleNext();
           }}
-          type="button"
-        >
-          Next
-        </button>
+        />
       </form>
     </div>
   );

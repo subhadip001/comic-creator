@@ -73,7 +73,7 @@ const MainCompoment: React.FC = (): JSX.Element => {
           : "bg-bg_for_light text-text_for_light"
       } }`}
     >
-      <section className="h-[92vh] w-[95%] mx-auto">
+      <section className="h-[92vh] w-[95%] mx-auto py-5">
         {page === 1 ? (
           <div className="flex">
             <GeneratorCard
