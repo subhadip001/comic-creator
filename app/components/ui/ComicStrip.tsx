@@ -21,10 +21,11 @@ const ComicStrip: React.FC<ComicStripProps> = ({
   );
   return (
     <div>
-      <div className="flex items-center mb-3 md:mb-5">
+      <div className="flex flex-col items-center mb-3 md:mb-5">
         <span className="text-3xl md:text-5xl text-gray-400 font-bold">
           Your Created Comic is Here
         </span>
+        <span>Right click on an image to add speech bubble/annotation to it</span>
       </div>
       <div className="bg-gray-300 flex flex-col h-[65vh] w-full overflow-y-auto md:overflow-x-auto">
         <div className="flex flex-col gap-3 md:flex-row w-full">
