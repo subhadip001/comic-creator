@@ -29,13 +29,13 @@ const InputComponent: React.FC<InputComponentProps> = ({
   return (
     <React.Fragment>
       <input
-        className={`${customClass} px-3 py-1 outline-none border-2 border-gray-300 rounded-md`}
+        className={`${customClass} px-3 py-1 outline-none border-2 border-gray-300 rounded-sm focus:border-blue-500 transition-all duration-300 ease-in-out`}
         type={inputType}
         placeholder={placeholder}
         onChange={onChangeHandler}
         value={value}
         name={name}
-        id={id} 
+        id={id}
       />
     </React.Fragment>
   );

@@ -19,3 +19,14 @@ html {
 a {
     text-decoration: none;
 }
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+
+}
+
+:hover::-webkit-scrollbar-thumb {
+    background-color: #8D8D8D;
+    border-radius: 8px;
+}
