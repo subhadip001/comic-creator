@@ -77,7 +77,7 @@ const MainCompoment: React.FC = (): JSX.Element => {
         {page === 1 ? (
           <div className="flex flex-col gap-3">
             <span className="text-center">
-              Create your own comic of 10 slides by entering a query and clicking on next
+              Create your own comic using AI of 10 slides by entering query
             </span>
             <GeneratorCard
               cardCount={cardCount}
