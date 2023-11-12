@@ -46,13 +46,13 @@ const MainCompoment: React.FC = (): JSX.Element => {
   }, [url]);
 
   const handleNext = () => {
-    if (cardCount <= 2) {
+    if (cardCount <= 10) {
       setCardCount((prev) => prev + 1);
       if (currImage) setNewImageUrl(currImage);
       setCurrImage("");
       setQuery("");
     }
-    if (cardCount >= 2) {
+    if (cardCount >= 10) {
       setPage(2);
       localStorage.setItem("page", JSON.stringify(2));
     }

@@ -101,7 +101,7 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
             btnType="button"
             customClass="flex items-center justify-center w-full py-1 bg-brand_green text-white"
             title={
-              cardCount === 2 ? (
+              cardCount === 10 ? (
                 <div className="flex items-center gap-2">
                   <span>Let's Check What U Built</span>
                 </div>
