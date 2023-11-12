@@ -18,7 +18,7 @@ These instructions will help you set up a local development instance of the appl
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your_repository/comic_creator_app.git
+   git clone https://github.com/subhadip001/comic-creator.git
    ```
 
 2. Navigate into the directory:
