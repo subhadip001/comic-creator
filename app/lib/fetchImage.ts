@@ -5,18 +5,15 @@ const API_BASE_URL =
 const API_KEY =
   "VknySbLLTUjbxXAXCjyfaFIPwUTCeRXbFSOjwRiCxsxFyhbnGjSFalPKrpvvDAaPVzWEevPljilLVDBiTzfIbWFdxOkYJxnOPoHhkkVGzAknaOulWggusSFewzpqsNWM";
 
-interface ComicImage {
-  url: string | null;
-  loading: boolean;
-  error: unknown;
-}
-
 const useGenerateComicImage = (text: string) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<unknown>(null);
   const [url, setUrl] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!text) {
+      return;
+    }
     const generateComicImage = async () => {
       setLoading(true);
       setError(null);
@@ -41,6 +38,7 @@ const useGenerateComicImage = (text: string) => {
         const url = window.URL.createObjectURL(result);
         setUrl(url);
       } catch (error) {
+        console.log(error);
         setError(error);
       } finally {
         setLoading(false);

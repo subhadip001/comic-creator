@@ -4,11 +4,20 @@ import Image from "next/image";
 import useThemeStore from "../store/themeStore";
 import React, { useEffect, useState } from "react";
 import useGenerateComicImage from "../lib/fetchImage";
+import GeneratorCard from "./ui/GeneratorCard";
 
-const MainCompoment: React.FC = () => {
+/**
+ * @packageDocumentation
+ * @module MainCompoment
+ * @description This is the main component of the app
+ * @component
+ * @returns {JSX.Element} JSX.Element
+ */
+
+const MainCompoment: React.FC = (): JSX.Element => {
   const isDark: boolean = useThemeStore((state) => state.isDark);
   const [query, setQuery] = useState<string>("");
-  const [image, setImage] = useState<string>("");
+  const [currImage, setCurrImage] = useState<string>("");
   const { url, loading, error } = useGenerateComicImage(query);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,7 +29,7 @@ const MainCompoment: React.FC = () => {
 
   useEffect(() => {
     if (url) {
-      setImage(url);
+      setCurrImage(url);
     }
   }, [url]);
 
@@ -34,21 +43,12 @@ const MainCompoment: React.FC = () => {
     >
       <section className="h-[92vh] w-[95%] mx-auto">
         <div>
-          <form onSubmit={handleSubmit}>
-            <input
-              className="bg-transparent"
-              type="text"
-              name="query"
-              id="query"
-              placeholder="Enter query"
-            />{" "}
-            <button type="submit">Submit</button>
-          </form>
-          {image && (
-            <div>
-              <Image src={image} width={500} height={500} alt="uu" />
-            </div>
-          )}
+          <GeneratorCard
+            currImage={currImage}
+            handleSubmit={handleSubmit}
+            loading={loading}
+            error={error}
+          />
         </div>
       </section>
     </main>
