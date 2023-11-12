@@ -11,7 +11,7 @@ type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({ title, customClass, btnType, onClickHandler }) => {
   return (
-    <button className={`${customClass} outline-none`} type={btnType} onClick={onClickHandler}>
+    <button className={`${customClass} shadow-sm outline-none`} type={btnType} onClick={onClickHandler}>
       {title}
     </button>
   );

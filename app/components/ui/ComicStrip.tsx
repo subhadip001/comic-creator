@@ -28,13 +28,14 @@ const ComicStrip: React.FC<ComicStripProps> = ({
         />
         <h1>Comic Strip</h1>
       </div>
-      {imageUrls.map((imageUrl, index) => {
-        return (
-          <React.Fragment key={index}>
-            <ComicCard imageUrl={imageUrl} />
-          </React.Fragment>
-        );
-      })}
+      {imageUrls.length > 0 &&
+        imageUrls.map((imageUrl, index) => {
+          return (
+            <React.Fragment key={index}>
+              <ComicCard imageUrl={imageUrl} />
+            </React.Fragment>
+          );
+        })}
     </div>
   );
 };

@@ -27,7 +27,9 @@ const MainCompoment: React.FC = (): JSX.Element => {
   );
   const [query, setQuery] = useState<string>("");
   const [currImage, setCurrImage] = useState<string>("");
-  const [page, setPage] = useState<number>(1);
+  const [page, setPage] = useState<number>(
+    JSON.parse(localStorage.getItem("page")!) || 1
+  );
   const [cardCount, setCardCount] = useState<number>(1);
 
   const { url, loading, error } = useGenerateComicImage(query);
@@ -44,18 +46,21 @@ const MainCompoment: React.FC = (): JSX.Element => {
   }, [url]);
 
   const handleNext = () => {
-    if (cardCount < 2) {
+    if (cardCount <= 2) {
       setCardCount((prev) => prev + 1);
-      setNewImageUrl(currImage);
+      if (currImage) setNewImageUrl(currImage);
       setCurrImage("");
       setQuery("");
-    } else if (cardCount >= 2) {
+    }
+    if (cardCount >= 2) {
       setPage(2);
+      localStorage.setItem("page", JSON.stringify(2));
     }
   };
 
   const handleCreateNew = () => {
     setPage(1);
+    localStorage.setItem("page", JSON.stringify(1));
     setCardCount(1);
     clearImageUrls();
   };
@@ -83,7 +88,11 @@ const MainCompoment: React.FC = (): JSX.Element => {
           </div>
         ) : page === 2 ? (
           <div>
-            <ComicStrip page={page} setPage={setPage} handleCreateNew={handleCreateNew} />
+            <ComicStrip
+              page={page}
+              setPage={setPage}
+              handleCreateNew={handleCreateNew}
+            />
           </div>
         ) : null}
       </section>
