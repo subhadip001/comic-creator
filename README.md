@@ -24,7 +24,7 @@ These instructions will help you set up a local development instance of the appl
 2. Navigate into the directory:
 
    ```bash
-   cd comic_creator_app
+   cd comic-creator
    ```
 
 3. Install dependencies:
