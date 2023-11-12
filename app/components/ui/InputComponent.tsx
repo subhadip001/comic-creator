@@ -15,6 +15,7 @@ type InputComponentProps = {
   value: string;
   name?: string;
   id?: string;
+  required?: boolean;
 };
 
 const InputComponent: React.FC<InputComponentProps> = ({
@@ -25,6 +26,7 @@ const InputComponent: React.FC<InputComponentProps> = ({
   value,
   name,
   id,
+  required,
 }) => {
   return (
     <React.Fragment>
@@ -36,6 +38,7 @@ const InputComponent: React.FC<InputComponentProps> = ({
         value={value}
         name={name}
         id={id}
+        required={required}
       />
     </React.Fragment>
   );

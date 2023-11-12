@@ -2,6 +2,7 @@ import React from "react";
 import ComicCard from "./ComicCard";
 import useImageStore from "@/app/store/imageStore";
 import Button from "./Button";
+import { IoMdAdd } from "react-icons/io";
 
 type ComicStripProps = {
   page: number;
@@ -20,22 +21,36 @@ const ComicStrip: React.FC<ComicStripProps> = ({
   );
   return (
     <div>
-      <div className="flex">
+      <div className="flex items-center mb-3 md:mb-5">
+        <span className="text-3xl md:text-5xl text-gray-400 font-bold">
+          Your Created Comic is Here
+        </span>
+      </div>
+      <div className="bg-gray-500 flex flex-col h-[65vh] w-full overflow-y-auto md:overflow-x-auto">
+        <div className="flex flex-col gap-3 md:flex-row w-full">
+          {true &&
+            ["1", "3", "4", "5"].map((imageUrl, index) => {
+              return (
+                <React.Fragment key={index}>
+                  <ComicCard imageUrl={imageUrl} />
+                </React.Fragment>
+              );
+            })}
+        </div>
+      </div>
+      <div className="mt-5">
         <Button
-          title="Create New"
+          title={
+            <div className="flex items-center gap-2 text-white">
+              <IoMdAdd />
+              <span>Create New Comic</span>
+            </div>
+          }
           onClickHandler={handleCreateNew}
           btnType="button"
+          customClass="bg-brand_green text-white py-1 px-2 rounded-md"
         />
-        <h1>Comic Strip</h1>
       </div>
-      {imageUrls.length > 0 &&
-        imageUrls.map((imageUrl, index) => {
-          return (
-            <React.Fragment key={index}>
-              <ComicCard imageUrl={imageUrl} />
-            </React.Fragment>
-          );
-        })}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import Button from "./Button";
 import useThemeStore from "@/app/store/themeStore";
 import { CgSpinner } from "react-icons/cg";
 import { FaMagic } from "react-icons/fa";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 type GeneratorCardProps = {
   cardCount: number;
@@ -42,15 +43,19 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
           <div
             className={`${
               isDark ? "bg-bg_for_dark_bar" : "bg-bg_for_light_bar"
-            } h-[50vh] flex items-center justify-center animate-pulse`}
-          ></div>
+            } h-[50vh] flex items-center justify-center animate-pulse rounded-sm`}
+          >
+            <span className="text-8xl font-bold text-gray-500">
+              {cardCount}
+            </span>
+          </div>
         ) : !currImage && error ? (
           <div className="h-[50vh]">Error occured</div>
         ) : (
           <div
             className={`${
               isDark ? "bg-bg_for_dark_bar" : "bg-bg_for_light_bar"
-            } h-[50vh] flex items-center justify-center`}
+            } h-[50vh] flex items-center justify-center rounded-sm`}
           >
             <span className="text-8xl font-bold text-gray-500">
               {cardCount}
@@ -70,11 +75,12 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
           value={queryText}
           name="query"
           id="query"
+          required={true}
         />
         {!currImage && !!loading && !error ? (
           <Button
             btnType="button"
-            customClass="flex items-center justify-center w-full py-1"
+            customClass="flex items-center justify-center w-full py-1 bg-orange-500 text-white"
             title={
               <div className="flex items-center gap-2">
                 <CgSpinner className="animate-spin" size={20} />
@@ -93,8 +99,13 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
         ) : currImage && !error && !loading ? (
           <Button
             btnType="button"
-            customClass="flex items-center justify-center w-full py-1"
-            title="Next"
+            customClass="flex items-center justify-center w-full py-1 bg-brand_green text-white"
+            title={
+              <div className="flex items-center gap-2">
+                <span>Generate Next</span>
+                <AiOutlineArrowRight />
+              </div>
+            }
             onClickHandler={() => {
               setQueryText("");
               handleNext();
