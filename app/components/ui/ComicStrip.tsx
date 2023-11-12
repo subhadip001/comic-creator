@@ -3,6 +3,7 @@ import ComicCard from "./ComicCard";
 import useImageStore from "@/app/store/imageStore";
 import Button from "./Button";
 import { IoMdAdd } from "react-icons/io";
+import useThemeStore from "@/app/store/themeStore";
 
 type ComicStripProps = {
   page: number;
@@ -16,6 +17,7 @@ const ComicStrip: React.FC<ComicStripProps> = ({
   handleCreateNew,
 }) => {
   const imageUrls: string[] = useImageStore((state) => state.imageUrls);
+  const isDark: boolean = useThemeStore((state) => state.isDark);
   const clearImageUrls: () => void = useImageStore(
     (state) => state.clearImageUrls
   );
@@ -42,7 +44,11 @@ const ComicStrip: React.FC<ComicStripProps> = ({
             })}
         </div>
       </div>
-      <div className="pt-5 flex items-center justify-end">
+      <div
+        className={`py-5 flex items-center justify-end ${
+          isDark ? "bg-bg_for_dark" : "bg-bg_for_light"
+        }`}
+      >
         <Button
           title={
             <div className="flex items-center gap-2 text-white">
