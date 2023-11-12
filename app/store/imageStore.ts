@@ -3,14 +3,16 @@ import { persist } from "zustand/middleware";
 
 interface ImageStore {
   imageUrls: string[];
+  setNewImageUrl: (newImageUrl: string) => void;
+  clearImageUrls: () => void;
 }
 
 const useImageStore = create<ImageStore, [["zustand/persist", ImageStore]]>(
   persist(
     (set) => ({
       imageUrls: [],
-      setImageUrl: (imageUrl: string) =>
-        set((state) => ({ imageUrls: [...state.imageUrls, imageUrl] })),
+      setNewImageUrl: (newImageUrl: string) =>
+        set((state) => ({ imageUrls: [...state.imageUrls, newImageUrl] })),
       clearImageUrls: () => set({ imageUrls: [] }),
     }),
     {

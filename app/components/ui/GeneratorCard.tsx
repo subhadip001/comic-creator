@@ -1,19 +1,27 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 type GeneratorCardProps = {
+  cardCountRef: React.MutableRefObject<number>;
   currImage: string;
+  query: string;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleNext: () => void;
   loading: boolean;
   error: unknown;
 };
 
 const GeneratorCard: React.FC<GeneratorCardProps> = ({
+  cardCountRef,
   currImage,
+  query,
   handleSubmit,
+  handleNext,
   loading,
   error,
 }) => {
+  const [queryText, setQueryText] = useState<string>("");
+
   return (
     <div>
       {currImage ? (
@@ -23,9 +31,9 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
       ) : !currImage && loading ? (
         <div>loading...</div>
       ) : !currImage && error ? (
-        <div>Enter query</div>
+        <div>Error occured</div>
       ) : (
-        <div>Preview will be shown here</div>
+        <div>Preview will be shown here {cardCountRef.current}</div>
       )}
       <form onSubmit={handleSubmit}>
         <input
@@ -34,8 +42,19 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
           name="query"
           id="query"
           placeholder="Enter query"
+          onChange={(e) => setQueryText(e.target.value)}
+          value={queryText}
         />{" "}
-        <button type="submit">Submit</button>
+        <button type="submit">Generate</button>
+        <button
+          onClick={() => {
+            setQueryText("");
+            handleNext();
+          }}
+          type="button"
+        >
+          Next
+        </button>
       </form>
     </div>
   );

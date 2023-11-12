@@ -37,6 +37,7 @@ const useGenerateComicImage = (text: string) => {
         const result = await response.blob();
         const url = window.URL.createObjectURL(result);
         setUrl(url);
+        console.log(url);
       } catch (error) {
         console.log(error);
         setError(error);
