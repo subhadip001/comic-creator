@@ -9,14 +9,18 @@ const ComicCard: React.FC<ComicCardProps> = ({ imageUrl }) => {
     { text: string; x: number; y: number }[]
   >([]);
 
-  const handleContextMenu = (event: React.MouseEvent) => {
+  const handleContextMenu = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
-
+  
     const annotation = window.prompt("Enter your annotation:");
     if (annotation) {
+      const rect = event.currentTarget.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+  
       setAnnotations((prevAnnotations) => [
         ...prevAnnotations,
-        { text: annotation, x: event.clientX, y: event.clientY },
+        { text: annotation, x, y },
       ]);
     }
   };
