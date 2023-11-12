@@ -75,7 +75,10 @@ const MainCompoment: React.FC = (): JSX.Element => {
     >
       <section className="h-[92vh] w-[95%] mx-auto py-5">
         {page === 1 ? (
-          <div className="flex">
+          <div className="flex flex-col gap-3">
+            <span className="text-center">
+              Create your own comic of 10 slides by entering a query and clicking on next
+            </span>
             <GeneratorCard
               cardCount={cardCount}
               currImage={currImage}

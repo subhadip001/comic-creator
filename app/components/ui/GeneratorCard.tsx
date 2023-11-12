@@ -50,7 +50,13 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
             </span>
           </div>
         ) : !currImage && error ? (
-          <div className="h-[50vh]">Error occured</div>
+          <div
+            className={`${
+              isDark ? "bg-bg_for_dark_bar" : "bg-bg_for_light_bar"
+            } h-[50vh] flex items-center justify-center rounded-sm`}
+          >
+            Error occured while generating image
+          </div>
         ) : (
           <div
             className={`${
