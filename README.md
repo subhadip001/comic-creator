@@ -64,7 +64,8 @@ These instructions will help you set up a local development instance of the appl
 
 ## Screenshots
 
-![Comic Panel](screenshots/comic.webp)
+![comic](https://github.com/subhadip001/comic-creator/assets/78922392/107f6d90-a79c-4a60-bacb-dffaf96e7eb9)
+
 
 ## Error Can Be Occured
 
