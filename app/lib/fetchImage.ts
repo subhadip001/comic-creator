@@ -48,7 +48,6 @@ const useGenerateComicImage = (text: string) => {
         setUrl(url);
         console.log(url);
       } catch (error) {
-        console.log(error);
         setError(error);
       } finally {
         setLoading(false);
