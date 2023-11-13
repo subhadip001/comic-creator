@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 
+
+// Given API_BASE_URL and API_KEY, But this is not working due to CORS issues
+
 const API_BASE_URL =
   "https://xdwvg9no7pefghrn.us-east-1.aws.endpoints.huggingface.cloud";
 const API_KEY =
   "VknySbLLTUjbxXAXCjyfaFIPwUTCeRXbFSOjwRiCxsxFyhbnGjSFalPKrpvvDAaPVzWEevPljilLVDBiTzfIbWFdxOkYJxnOPoHhkkVGzAknaOulWggusSFewzpqsNWM";
+
+
+// So I have added stabilityai/stable-diffusion-xl-base-1.0 inference API to generate comic image from text
 
 
 /**
@@ -29,12 +35,12 @@ const useGenerateComicImage = (text: string) => {
       console.log(text);
       try {
         const response = await fetch(
-          "https://xdwvg9no7pefghrn.us-east-1.aws.endpoints.huggingface.cloud",
+          "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
           {
             headers: {
-              Accept: "image/png",
+              
               Authorization:
-                "Bearer VknySbLLTUjbxXAXCjyfaFIPwUTCeRXbFSOjwRiCxsxFyhbnGjSFalPKrpvvDAaPVzWEevPljilLVDBiTzfIbWFdxOkYJxnOPoHhkkVGzAknaOulWggusSFewzpqsNWM",
+                "Bearer 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",
               "Content-Type": "application/json",
             },
             method: "POST",
