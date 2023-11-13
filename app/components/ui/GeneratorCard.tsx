@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputComponent from "./InputComponent";
 import Button from "./Button";
 import useThemeStore from "@/app/store/themeStore";
@@ -27,6 +27,12 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
 }) => {
   const [queryText, setQueryText] = useState<string>("");
   const isDark: boolean = useThemeStore((state) => state.isDark);
+
+  useEffect(() => {
+    if (error) {
+      setQueryText("");
+    }
+  }, [error]);
 
   return (
     <div className="px-5 py-4 shadow-lg rounded-md w-[95%] sm:w-[75%] md:w-[65%] mx-auto">
