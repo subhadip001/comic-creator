@@ -4,20 +4,36 @@ type ComicCardProps = {
   imageUrl: string;
 };
 
-const ComicCard: React.FC<ComicCardProps> = ({ imageUrl }) => {
+/**
+ * @param imageUrl
+ * @description
+ * This component is used to render the comic card
+ * Add annotations/speech bubbles to the comic card
+ * @returns {JSX.Element}
+ */
+
+const ComicCard: React.FC<ComicCardProps> = ({ imageUrl }): JSX.Element => {
   const [annotations, setAnnotations] = useState<
     { text: string; x: number; y: number }[]
   >([]);
 
+  /**
+   *
+   * @param event  - React.MouseEvent<HTMLDivElement>
+   * @description
+   * This function is used to add annotations/speech bubbles to the comic card
+   * Default browser context menu is disabled. Right click on the comic card or press and hold to add annotations/speech bubbles
+   */
+
   const handleContextMenu = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
-  
+
     const annotation = window.prompt("Enter your annotation:");
     if (annotation) {
       const rect = event.currentTarget.getBoundingClientRect();
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
-  
+
       setAnnotations((prevAnnotations) => [
         ...prevAnnotations,
         { text: annotation, x, y },

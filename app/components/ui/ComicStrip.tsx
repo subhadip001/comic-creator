@@ -11,11 +11,21 @@ type ComicStripProps = {
   handleCreateNew: () => void;
 };
 
+
+/**
+ * @param page
+ * @param setPage
+ * @param handleCreateNew
+ * @description
+ * This component is used to render the comic strip
+ * @returns {JSX.Element}
+ */
+
 const ComicStrip: React.FC<ComicStripProps> = ({
   page,
   setPage,
   handleCreateNew,
-}) => {
+}): JSX.Element => {
   const imageUrls: string[] = useImageStore((state) => state.imageUrls);
   const isDark: boolean = useThemeStore((state) => state.isDark);
   const clearImageUrls: () => void = useImageStore(

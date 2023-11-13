@@ -1,8 +1,8 @@
-# Comic Creator App
+# Comic Creator App with Speech Bubbles Feature
 
 Comic Creator is a Next.js web application that allows users to create comic strips.
 Create Comics of 10 panels and at last view it in a comic strip format.
-Add speech bubbles to the panels in the strip format and add text to them.
+Add speech bubbles to the panels in the strip format.
 
 ## Getting Started
 
@@ -61,7 +61,7 @@ These instructions will help you set up a local development instance of the appl
 - Create Comics of 10 panels
 - View the created comic in a comic strip format
 - Add speech bubbles to the panels in the strip format
-- Add text to the speech bubbles
+
 
 ## Improvements Can Be Done
 
