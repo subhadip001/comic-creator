@@ -66,6 +66,10 @@ These instructions will help you set up a local development instance of the appl
 
 - Due to CORS policy the images may not be generated, In Backend API has be changed to allow CORS policy
 
+## Changes made
+
+- To avoid CORS policy error, I have used inference api of stabilityai/stable-diffusion-xl-base-1.0 instead of the api provided by the task
+
 
 ## Improvements Can Be Done
 
