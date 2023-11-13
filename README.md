@@ -64,7 +64,7 @@ These instructions will help you set up a local development instance of the appl
 
 ## Screenshots
 
-![Comic Panel](screenshots/comic.png)
+![Comic Panel](screenshots/comic.webp)
 
 ## Error Can Be Occured
 
