@@ -5,6 +5,15 @@ const API_BASE_URL =
 const API_KEY =
   "VknySbLLTUjbxXAXCjyfaFIPwUTCeRXbFSOjwRiCxsxFyhbnGjSFalPKrpvvDAaPVzWEevPljilLVDBiTzfIbWFdxOkYJxnOPoHhkkVGzAknaOulWggusSFewzpqsNWM";
 
+
+/**
+ * 
+ * @param text 
+ * @description This function will generate a comic image from the text provided
+ * Due to CORS issues, error may occur.
+ * @returns 
+ */
+
 const useGenerateComicImage = (text: string) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<unknown>(null);

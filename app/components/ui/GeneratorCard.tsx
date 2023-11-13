@@ -97,7 +97,7 @@ const GeneratorCard: React.FC<GeneratorCardProps> = ({
           />
         ) : !currImage && !!error && !loading ? (
           <Button
-            customClass="flex items-center justify-center w-full py-1"
+            customClass="flex items-center justify-center w-full py-1 bg-red-500 text-white"
             btnType="button"
             title="Error occured"
             disabled

@@ -62,6 +62,10 @@ These instructions will help you set up a local development instance of the appl
 - View the created comic in a comic strip format
 - Add speech bubbles to the panels in the strip format
 
+## Error Can Be Occured
+
+- Due to CORS policy the images may not be generated, In Backend API has be changed to allow CORS policy
+
 
 ## Improvements Can Be Done
 
